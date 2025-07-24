@@ -39,7 +39,11 @@
 
 {% block mainphoto %}
 
-  <div id="childphoto">    
+  <div id="childphoto">   
+
+     <!-- {% load static %}
+     <img src="{% static 'images/paperworkImage.png' %}" -->
+
       <img src= "{{ photo }}" alt="{{ firstname }} {{ secondname }} pic" height="400" width="300" style="border:2px solid black; margin-left:22%">
       
   </div>

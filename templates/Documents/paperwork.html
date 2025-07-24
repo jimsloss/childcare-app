@@ -33,9 +33,13 @@
 
 
 {% block mainphoto %}
-  <div id="childphoto">
-  <img src="/media/images/paperworkImage.png" alt="Paperwork Image" height="465" width="650" style="border:2px solid black; margin-left:10%"></H4>
-  </div>
+    <div id="childphoto">
+  
+        {% load static %}
+        <img src="{% static 'images/paperworkImage.png' %}" alt="Paperwork Image" height="465" width="650" 
+        style="border:2px solid black; margin-left:10%">
+    
+    </div>
 {% endblock %}
 
 {% block mainleft %}   
