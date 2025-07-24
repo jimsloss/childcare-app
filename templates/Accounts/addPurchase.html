@@ -1,0 +1,79 @@
+{% extends "main_layout.html" %}
+
+{% block title %}
+    ADD EXPENSE
+{% endblock %}
+
+{% block page %}
+    ADD EXPENSE
+{% endblock %}
+
+{% block content %}
+
+<div class="loginbox">
+
+    <!--form action="{% url 'register' %}" method="post">-->
+    <form action="{% url 'addPurchase' %}" method="post">
+        {% csrf_token %}
+        
+        <input type="hidden" name="task" value="addpurchase">
+
+        <h4 style="color:darkred; font-weight:bold;">ADD EXPENSE</h4><hr>
+            
+        <br>
+
+        <label class="menulabels">DATE:</label>
+        <input type="date" style="text-align:center;" id = "dateOfPurchase" name ="dateOfPurchase">
+
+        <br>
+        
+        <label class="labels2">NAME:</label>
+        <select id="name" name="name">
+          <option value="default">Select</option>
+          <option value="tesco">Tesco</option>
+          <option value="asda">Asda</option>
+          <option value="iceland">Iceland</option>
+          <option value="coop">Co-Op</option>
+          <option value="other">Other</option>
+          
+        </select>
+        
+        <br><br>
+
+        <label class="menulabels">CATEGORY:</label>
+          <select id="category" name="category">
+            <option value="Goods Bought" selected>Goods Bought</option>
+            <option value="Car & Travel">Car & Travel</option>
+            <option value="Staffing">Staffing</option>
+            <option value="Rent & Rates">Rent & Rates</option>
+            <option value="Electricity">Electricity</option>
+            <option value="Oil">Oil</option>
+            <option value="Property Costs">Property Costs</option>
+            <option value="Equipment">Equipment</option>
+            <option value="Accountancy & Legal">Accountancy & Legal</option>
+            <option value="Bank & Financial">Bank & Financial</option>
+            <option value="Phone">Phone</option>
+            <option value="Stationery & Office">Stationery & Office</option>
+            <option value="Other">Other</option>
+          </select>
+
+        <br><br>
+        
+        <label class="menulabels">PURCHASE:</label>
+        <input name="purchase" type="textbox" autocomplete="off"/>
+        
+        <br><br>
+            
+        <label class="menulabels">PAYMENT:</label>
+        <input name="payment" type="textbox" autocomplete="off"/>
+        
+        <br><br>    
+
+        <button class="btn btn-primary" type="submit" value = "Login">Submit</button> 
+        <button class="btn btn-secondary" type="submit" value = "Cancel">Cancel</button>
+        
+        <br> <br>
+    
+      </form>
+    
+    {% endblock %}

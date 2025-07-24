@@ -1,0 +1,292 @@
+{% extends "vtabs_layout.html" %}
+
+{% block title %}
+    Documents
+{% endblock %}
+
+{% block page %}
+    Documents
+{% endblock %}
+
+{% block menuoptions%}
+    <li class="nav-item"><a class="nav-link" href="/main">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="/thisWeek">This Week</a></li>
+    <li class="nav-item"><a class="nav-link" href="/kids">Kids</a></li>
+    <li class="nav-item"><a class="nav-link" href="/menu">Menu</a></li>
+    <li class="nav-item"><a class="nav-link" href="/holidays">Holidays</a></li>
+    <li class="nav-item"><a class="nav-link" href="/accounts">Accounts</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
+
+{% endblock %}
+
+
+{% block tab1 %} Policies {% endblock %}
+{% block tab2 %} Contracts & Consent {% endblock %}
+{% block tab3 %} Inspection Reports {% endblock %}
+{% block tab4 %} Other Forms {% endblock %}
+
+
+{% block tab1title %} Policies {% endblock %}
+{% block tab2title %} Contracts & Consent {% endblock %}
+{% block tab3title %} Inspection Reports {% endblock %}
+{% block tab4title %} Other Forms {% endblock %}
+
+
+{% block mainphoto %}
+  <div id="childphoto">
+  <img src="/media/images/paperworkImage.png" alt="Paperwork Image" height="465" width="650" style="border:2px solid black; margin-left:10%"></H4>
+  </div>
+{% endblock %}
+
+{% block mainleft %}   
+<div style="height:330px";>
+
+  <h4 class ="docSubs">Policy Name</h4>
+  <div style = "margin-left: 20px;">
+    <ul>
+        <li>Policy 1 with link : last updated</li>
+        <li>Policy 2 with link : last updated</li>
+        <li>Policy 3 with link : last updated</li>
+        <li>Policy 4 with link : last updated</li>
+    </ul>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block mainmiddle %}
+
+
+{% endblock %}
+
+{% block mainright %}
+
+<h4 class ="docSubs">PACEY links;</h4>
+<ul>
+    <li> <a href="https://www.pacey.org.uk/working-in-childcare/spotlight-on/gdpr-everything-you-need-to-know/">GDPR</a></li>
+    <li> <a href="https://www.pacey.org.uk/working-in-childcare/spotlight-on/safeguarding/">SAFEGUARDING</a></li>
+    <li> Minimum standards link</li>
+</ul>
+
+<h4 class ="docSubs">Other Sources;</h4>
+<ul>
+    <li>NICMA</li>
+    <li>Social Services</li>
+</ul>
+
+
+{% endblock %}
+<!--
+    <p align ="center">
+            
+    <button class="btn btn-primary" type="submit" name = "addChild" value = "Add" style ="margin:20px;">ADD CHILD</button>
+
+    <button class="btn btn-primary" type="submit" name = "removeChild" value = "Remove" style ="margin:20px;">REMOVE CHILD</button>
+    
+
+
+</p>
+-->
+
+{% block updatebutton %}
+
+<div class = "update-details-button";>
+    <form action="{% url 'changefees' %}" method="post">
+        {% csrf_token %}
+       
+        <button class="btn btn-primary" type="submit" name = "submit" value = "add" style="margin-right: 40px";>ADD</button>            
+        <button class="btn btn-secondary" type="submit" name = "update" value = "remove" style="margin-right: 40px";>REMOVE</button>          
+        <button class="btn btn-primary" type="submit" name = "update" value = "update">UPDATE</button>   
+    </form>
+
+         
+</div>
+
+{% endblock %}
+
+
+<!--other tab contents-->
+
+{% block tab2content %}
+
+    <!--left side-->
+
+    {% block tab2left %}
+
+    <div style="height:330px";>
+
+        <h4 class ="docSubs">Contracts</h4>
+        <div style = "margin-left: 20px;">
+          <ul>
+              {% for kid in kids %}
+              <li>{{kid.firstname}} {{kid.surname}} : <a href="#">Signed</a></li>
+               
+              {% endfor %}
+          </ul>
+    
+        </div>
+    
+    </div>
+    
+    
+    {% endblock %}
+  
+    <!--middle section-->
+  
+    {% block tab2middle %}
+    
+    <h4 class ="docSubs">Consent Forms</h4>
+        <div style = "margin-left: 20px;">
+          <ul>
+            <li> Medication / Medical Attention</li>
+            <li> Photographs / Recordings</li>
+            <li> ICT / Technology</li>
+            <li> Intimate Personal Care</li>
+            <li> Sleep</li>
+            <li> Transport / Travel</li>
+            <li> Outings</li>
+            <li> Suncream</li>
+            <li> Animals</li>
+            <li> Taxi</li>
+          </ul>
+        </div>
+    
+    {% endblock %}
+  
+    <!--right side-->
+  
+    {% block tab2right %}
+
+    <h4 class ="docSubs">Related</h4>
+
+    <div style = "margin-left: 20px;">
+        <ul>
+            <li> Personal Record Form</li>
+            <li> Termination of Contracts</li>
+            <li> Medication Form</li>
+            <li> Accident Form</li>
+            <li> At a glance Form</li>
+            <li> Fees</li>        
+        </ul>
+    </div>
+    
+    {% endblock %}
+  
+    {% block updatebutton2 %}
+
+    <div class = "update-details-button";>
+        <form action="{% url 'changefees' %}" method="post">
+            {% csrf_token %}
+           
+            <button class="btn btn-primary" type="submit" name = "submit" value = "add" style="margin-right: 40px";>ADD</button>            
+            <button class="btn btn-secondary" type="submit" name = "update" value = "remove" style="margin-right: 40px";>REMOVE</button>          
+            <button class="btn btn-primary" type="submit" name = "update" value = "update">UPDATE</button>   
+        </form>
+    
+             
+    </div>
+    
+    {% endblock %}
+    
+
+{% endblock %}
+
+{% block tab3content %}
+
+    {% block tab3left %}
+    <div style="height:330px";>
+
+        <h4>Last Inspection</h4>
+        <br> Date:
+        <br>
+        <br> Name of Inspector:
+        <br> 
+        <br>
+        <br> Action Points:
+        <br><br><br>
+        <br> Other Notes:
+        <br>
+    </div>
+    {% endblock %}
+
+    {% block tab3middle %}
+
+        <h4>  Action Taken</h4>
+        <br>  
+        <br>  
+        <br>  
+        <br>  Other issues to raise
+        <br>
+    
+    {% endblock %}
+
+    <!--right side-->
+    {% block tab3right %}
+
+        <h4>Next Inspection</h4>
+        <br>Date:
+        <br><br>
+
+        <h4>Action Points:</h4>
+        <br>  
+
+    {% endblock %}
+
+    {% block updatebutton3 %}
+
+    <div class = "update-details-button";>
+        <form action="{% url 'changefees' %}" method="post">
+            {% csrf_token %}
+           
+            <button class="btn btn-primary" type="submit" name = "submit" value = "add" style="margin-right: 40px";>ADD</button>            
+            <button class="btn btn-secondary" type="submit" name = "update" value = "remove" style="margin-right: 40px";>REMOVE</button>          
+            <button class="btn btn-primary" type="submit" name = "update" value = "update">UPDATE</button>   
+        </form>
+    
+             
+    </div>
+    
+    {% endblock %}
+    
+{% endblock %}
+
+
+{% block tab4content %}
+
+    {% block tab4left %}
+    <div style="height:330px";>
+    
+    </div>
+
+    {% endblock %}
+
+
+    {% block tab4middle %}
+
+
+    {% endblock %}
+
+    <!--right side-->
+    {% block tab4right %}
+
+    {% endblock %}
+
+    {% block updatebutton4 %}
+
+    <div class = "update-details-button";>
+        <form action="{% url 'changefees' %}" method="post">
+            {% csrf_token %}
+           
+            <button class="btn btn-primary" type="submit" name = "submit" value = "add" style="margin-right: 40px";>ADD</button>            
+            <button class="btn btn-secondary" type="submit" name = "update" value = "remove" style="margin-right: 40px";>REMOVE</button>          
+            <button class="btn btn-primary" type="submit" name = "update" value = "update">UPDATE</button>   
+        </form>
+    
+             
+    </div>
+    
+    {% endblock %}
+    
+
+{% endblock %}
+
