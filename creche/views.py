@@ -18,7 +18,7 @@ from .models import Menu, Holidays
 def index(request):
     if not request.user.is_authenticated:
         # if not logged in, show login page
-        return render(request, "users/login.html", {"message": "Log in: "})
+        return render(request, "Users/login.html", {"message": "Log in: "})
     context = {
         "user": request.user,
         "kids": Child.objects.all()
