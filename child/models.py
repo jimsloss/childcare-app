@@ -71,7 +71,8 @@ class Child(models.Model):
     c2 = models.CharField(max_length=11)
     othercontact = models.CharField(max_length=64)
     c3 = models.CharField(max_length=11)
-    childphoto = models.ImageField(upload_to='images/', default='images/no_boy_photo.png', max_length=100) # **options)
+    # childphoto = models.ImageField(upload_to='images/', default='images/no_boy_photo.png', max_length=100) # **options)
+    childphoto = models.CharField(default="images/no_boy_photo.png", max_length=100)
     active = models.BooleanField(default=False)
 
     address = models.CharField(max_length=1024)
